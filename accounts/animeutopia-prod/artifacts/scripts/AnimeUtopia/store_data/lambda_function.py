@@ -23,7 +23,10 @@ def lambda_handler(event, context):
         dict: Dictionary indicating storage status and S3 key used.
     """
     post = event.get("post")
-    if post is None:
+    if not post:
+        post = event.get("processedContent", {}).get("post", {})
+
+    if not post:
         error_msg = "No 'post' data found in event."
         logger.error(error_msg)
         return {"status": "error", "error": error_msg}

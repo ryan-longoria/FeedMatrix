@@ -34,6 +34,8 @@
     "@backstage/cli": "^0.30.0",
     "@backstage/e2e-test-utils": "^0.1.1",
     "@playwright/test": "^1.32.3",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.13.10",
     "node-gyp": "^10.0.0",
     "prettier": "^2.3.2",
     "typescript": "~5.4.0"
@@ -52,5 +54,9 @@
       "prettier --write"
     ]
   },
-  "packageManager": "yarn@4.4.1"
+  "packageManager": "yarn@4.4.1",
+  "dependencies": {
+    "@types/prop-types": "^15.7.14",
+    "prop-types": "^15.8.1"
+  }
 }

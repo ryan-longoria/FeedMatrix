@@ -1,7 +1,21 @@
+# .dockerignore
+
+# Ignore Git metadata
 .git
-.yarn/cache
-.yarn/install-state.gz
-*.local.yaml
+
+# Ignore Yarn files
+.yarn
+.pnp.*
+.yarn-cache
+
+# **Crucial**: ignore all local node_modules
 node_modules
 packages/*/node_modules
 plugins/*/node_modules
+
+# Possibly ignore other local build artifacts
+dist
+build
+
+# If you have leftover Dockerfiles or personal config
+*.local.yaml

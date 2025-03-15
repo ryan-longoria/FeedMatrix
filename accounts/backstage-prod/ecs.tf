@@ -19,7 +19,7 @@ resource "aws_ecs_task_definition" "backstage" {
   container_definitions = jsonencode([
     {
       name  = "backstage"
-      image = "825765422855.dkr.ecr.us-east-2.amazonaws.com/backstage-repo@sha256:a177f578d67e890c783189c40399351262a3a632b714bfa0ab4afae4ff4fc8d4"
+      image = "825765422855.dkr.ecr.us-east-2.amazonaws.com/backstage-repo@sha256:68d176e9e887e442e71c8bef2d6391c6c27cc818f87bd209f241e4bcd89576fa"
       portMappings = [
         {
           containerPort = 7007
@@ -31,7 +31,7 @@ resource "aws_ecs_task_definition" "backstage" {
         { name = "POSTGRES_HOST", value = aws_db_instance.backstage.address },
         { name = "POSTGRES_USER", value = aws_db_instance.backstage.username },
         { name = "POSTGRES_PASSWORD", value = var.db_password },
-        { name = "POSTGRES_DATABASE", value = aws_db_instance.backstage.db_name },
+        { name = "POSTGRES_DB", value = aws_db_instance.backstage.db_name },
         { name = "TECHDOCS_S3_BUCKET", value = aws_s3_bucket.techdocs.id },
         { name : "APP_CONFIG_app_baseUrl", value : "https://${var.backstage_domain}" },
         { name : "APP_CONFIG_backend_baseUrl", value : "https://${var.backstage_domain}" },

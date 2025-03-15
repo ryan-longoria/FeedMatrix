@@ -91,7 +91,7 @@ resource "aws_lb_target_group" "backstage" {
   vpc_id      = aws_vpc.main.id
 
   health_check {
-    path                = "/"
+    path                = "/health"
     interval            = 30
     timeout             = 5
     healthy_threshold   = 2

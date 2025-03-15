@@ -29,21 +29,12 @@ import { Root } from './components/Root';
 import {
   AlertDisplay,
   OAuthRequestDialog,
-  SignInPage,
-  SignInProviderConfig,
 } from '@backstage/core-components';
 import { createApp } from '@backstage/app-defaults';
 import { AppRouter, FlatRoutes } from '@backstage/core-app-api';
 import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
 import { RequirePermission } from '@backstage/plugin-permission-react';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
-
-const customProviderConfig: SignInProviderConfig = {
-  id: 'awsalb',
-  title: 'Sign in with FeedUtopia',
-  message: 'Sign in using FeedUtopia AWS ALB integration',
-  apiRef: {} as any,
-};
 
 const app = createApp({
   apis,
@@ -65,15 +56,7 @@ const app = createApp({
     });
   },
   components: {
-    SignInPage: () => (
-      <SignInPage
-        auto
-        provider={customProviderConfig}
-        onSignInSuccess={(identityApi) => {
-          console.log('Sign in successful!', identityApi);
-        }}
-      />
-    ),
+    SignInPage: () => null,
   },
 });
 
